@@ -6,7 +6,15 @@
     <ul class="list-group">
       {{#each queues}}
         <li class="list-group-item">
-          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}">{{ this.hostId }}/{{ this.name }}</a> {{ jobCounts }}
+          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}">
+            <p>
+              {{ this.hostId }}/{{ this.name }}
+            <p>
+          </a>
+          <span class="badge progress-bar-warning">{{ jobCounts.waiting }} waiting</span>
+          <span class="badge progress-bar-success">{{ jobCounts.active }} active</span>
+          <span class="badge progress-bar-danger">{{ jobCounts.failed }} failed</span>
+          <span class="badge progress-bar-info">{{ jobCounts.delayed }} delayed</span>
         </li>
       {{/each}}
     </ul>

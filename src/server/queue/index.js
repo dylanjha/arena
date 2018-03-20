@@ -27,8 +27,8 @@ class Queues {
         }
         return {
           hostId: config.hostId,
-          jobCounts: JSON.stringify(jobCounts),
-          name: queue.name
+          name: queue.name,
+          jobCounts
         }
       })
     )
