@@ -14,6 +14,26 @@ class Queues {
     return this._config.queues;
   }
 
+  async richList () {
+    return Promise.all(
+      this._config.queues.map(async (config) => {
+        const queue = await this.get(config.name, config.hostId)
+        let jobCounts;
+        if (queue.IS_BEE) {
+          jobCounts = await queue.checkHealth();
+          delete jobCounts.newestJob;
+        } else {
+          jobCounts = await queue.getJobCounts();
+        }
+        return {
+          hostId: config.hostId,
+          jobCounts: JSON.stringify(jobCounts),
+          name: queue.name
+        }
+      })
+    )
+  }
+
   setConfig(config) {
     this._config = config;
   }

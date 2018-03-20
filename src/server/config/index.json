@@ -7,5 +7,14 @@
       "hostId": "AWS Server 2"
     }
   ],
-  "queues": []
+  "queues": [
+    {
+      "name": "my_queue",
+      "hostId": "AWS Server 1"
+    },
+    {
+      "name": "my_queue",
+      "hostId": "AWS Server 2"
+    }
+  ]
 }
