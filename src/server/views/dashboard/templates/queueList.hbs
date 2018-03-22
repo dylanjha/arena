@@ -11,10 +11,18 @@
               {{ this.hostId }}/{{ this.name }}
             <p>
           </a>
-          <span class="badge progress-bar-warning">{{ jobCounts.waiting }} waiting</span>
-          <span class="badge progress-bar-success">{{ jobCounts.active }} active</span>
-          <span class="badge progress-bar-danger">{{ jobCounts.failed }} failed</span>
-          <span class="badge progress-bar-info">{{ jobCounts.delayed }} delayed</span>
+          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}/waiting" class="badge progress-bar-warning">
+            {{ jobCounts.waiting }} waiting
+          </a>
+          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}/active" class="badge progress-bar-success">
+            {{ jobCounts.active }} active
+          </a>
+          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}/failed" class="badge progress-bar-danger">
+            {{ jobCounts.failed }} failed
+          </a>
+          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}/delayed" class="badge progress-bar-info">
+            {{ jobCounts.delayed }} delayed
+          </a>
         </li>
       {{/each}}
     </ul>
